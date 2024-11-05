@@ -1,0 +1,258 @@
+<html>
+
+<head>
+  <title>数字阅读空间</title>
+  <meta charset="utf-8" />
+  <style type="text/css">
+    /* 公用样式 */
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+      height: auto;
+    }
+
+    /* 导航菜单*/
+    .head {
+      background-color: #781a1a;
+      width: 100%;
+    /* 控制子元素，横向排列并居中 */
+      display: flex;
+      flex-direction: row;
+      /* 横向排列 */
+      justify-content: center;
+      /* 横向居中 */
+    }
+
+    .head div {
+      width: 200px;
+      line-height: 50px;
+      text-align: center;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    /* 搜索框样式 */
+    .search-box {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-box input[type="text"] {
+      padding: 10px;
+      width: 500px;
+      margin-right: 5px;
+    }
+
+    .search-box input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #781a1a;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .search-box input[type="submit"]:hover {
+      background-color: #5b5b97;
+    }
+
+    /*轮播屏 */
+    #container {
+      position: relative;
+      margin-top: 2%;
+      left: 25%;
+      width: 700px;
+      height: 375px;
+      overflow: hidden;
+      /* 隐藏超出容器的图片部分 */
+    }
+
+    #list {
+      z-index: 1;
+      width: 700px;
+      height: 100%;
+    }
+
+    #list img {
+      width: 700px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .arrow {
+      display: block;
+      position: absolute;
+      top: 175px;
+      z-index: 2;
+      display: none;
+      /* 默认不显示箭头 */
+      width: 20px;
+      height: 40px;
+      font-size: 36px;
+      font-weight: bold;
+      line-height: 37px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #container:hover .arrow {
+      display: block;
+      /* 鼠标悬停在容器上时显示箭头 */
+    }
+
+    #prev {
+      left: 3px;
+    }
+
+    #next {
+      right: 20px;
+    }
+
+    /* 正文内容*/
+    .content {
+      margin: 50px;
+      margin-left: 5%;
+      width: 80%;
+      height: 90%;
+      /* 控制子元素，竖向排列 */
+      display: flex;
+      flex-direction: column;
+      /* 竖向排列 */
+    }
+
+    .lines {
+      width: 50%;
+      flex-grow: 1;
+      /* lines高度比例为：1:1:1，平分content高度 */
+
+      /* 控制子元素，纵向排列 */
+      display: flex;
+      flex-direction: column;
+      /* 纵向排列 */
+    }
+
+    .lines div {
+      flex-grow: 1;
+      /* lines中的3个div，宽度占比为：1:1:1，平分lines宽度 */
+      /* 控制子元素，居中 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lines div img {
+      width: 35%;
+      height: 90%;
+    }
+
+    .right-text1 {
+      position: absolute;
+      top: 605px;
+      left: 38%;
+      right: 15%;
+      color: #000;
+      font-size: 16px;
+    }
+    .right-text2 {
+      position: absolute;
+      top: 870px;
+      left: 38%;
+      right: 15%;
+      color: #000;
+      font-size: 16px;
+    }
+    .right-text3 {
+      position: absolute;
+      top: 1075px;
+      left: 38%;
+      right: 15%;
+      color: #000;
+      font-size: 16px;
+    }
+    .right-text4 {
+      position: absolute;
+      top: 1365px;
+      left: 38%;
+      right: 15%;
+      color: #000;
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <img src="tupian/logo.png" alt="Logo" class="logo">
+
+  <!-- 搜索框 -->
+  <div class="search-box">
+    <input type="text" placeholder="搜索书籍...">
+    <input type="submit" value="搜索">
+  </div>
+
+  <!-- 网页头-弹性布局 -->
+  <div class="head">
+    <div ><a href=""></a>网站首页</div>
+    <div>作家名录</div>
+    <div>新闻中心</div>
+    <div>我的书架</div>
+    <div>联系我们</div>
+  </div>
+
+  <div id="container">
+    <div id="list">
+      <img src="tupian/1.png" id="picView" />
+    </div>
+    <span id="prev" class="arrow" onclick="picView()">《</span>
+    <span id="next" class="arrow" onclick="picView()">》</span>
+  </div>
+  <script>
+    var a = 1;
+    function picView() {
+      if (a == 1) {
+        a = 2;
+      }
+      else {
+        a = 1;
+      }
+      document.getElementById("picView").src = "tupian/" + a + ".png";
+    }
+  </script>
+
+  <!-- 正文内容-弹性布局 -->
+  <div class="content">
+    <div class="lines">
+      <div><img src="tupian\3.png" ; /></div>
+      <div><img src="tupian\4.png" ; /></div>
+      <div><img src="tupian\5.png" ; /></div>
+      <div><img src="tupian\6.png" ; /></div>
+    </div>
+  </div>
+
+  <div class="right-text1"> 《安吉拉·卡特的精怪故事集》绝对没有昏头昏脑的公主和多愁善感的仙子，相反，我们看到的是美丽的女仆和干瘪的老太婆，狡猾的妇人和品行不端的姑娘，巫婆和接生婆，坏姨妈和怪姐妹。<br>
+    这些故事来自世界各地，从北极到亚洲，内容记录了平民百姓的实际生活，有时甚至到了令人不自在的地步——贫穷、饥饿、不稳固的家庭关系、遍布的暴行。<br>
+    《安吉拉·卡特的精怪故事集》不仅仅是一个个故事的集合，更是一个个社会问题的缩影。通过阅读这些故事，我们可以更好地理解和面对我们所处的世界。</div>
+  <div class="right-text2"> 梁晓声说，他写《人世间》，在尽最大的努力向现实主义致敬。人是这样的，更可以是那样的、应该是那样的。他通过他笔下不同层面的人物，传达他对社会的感知和愿景。<br>
+    作者感同身受，满怀深情，立足底层，直指人心，于人间烟火处彰显道义和担当，在悲欢离合中抒写情怀和热望。作品有筋骨、有道德、有温度，是近年来不可多得的一部长篇小说佳作，更是梁晓声长篇小说创作的一个新的高峰。</div>
+  <div class="right-text3"> 《平凡的世界》是一部由路遥创作的长篇小说,以一个普通农村家庭为背景，生动展现了中国改革开放时期的社会变迁和人们的心理状态，对于了解中国社会历史和人文情感有很大的触动。
+    小说中的人物形象写得十分丰满，每个角色都有自己的个性和成长历程，通过对主人公方鸿渐的描写，展示了一个普通人从青年到中年的成长历程，以及他在社会变革中的困惑和奋斗。
+    小说涉及家庭、友情、爱情、社会责任等重要主题，通过对这些主题的探讨，读者能够思考关于生活的意义、人性的复杂性以及社会进步的价值。<br>
+    《平凡的世界》是一部真实而深刻的小说，通过生动的人物描写和深刻的主题探讨，给读者带来了思考和启示。对于喜欢阅读文学作品并对人生和社会问题感兴趣的读者来说，这本书绝对是一部不容错过的佳作。</div>
+  <div class="right-text4"> 《红玫瑰与白玫瑰》是张爱玲诸多作品中一部广为流传的中篇小说。作者用细腻的笔触描写了普通人隐秘的心理与情结，展现了20世纪三四十年代中国中西方文化交汇时人们的情感、婚姻生活，揭示了传统与现代融合下男权社会中女性难以摆脱的悲剧人生<br>
+    张爱玲的文字充满了诗意和哲理，她的叙述方式既冷静又深情，能够触动读者内心深处的感受。阅读她的作品，就像是在品味一幅幅精美的画卷，每一笔都是那么的精准和有力<br>
+    作为张爱玲的代表作之一，《红玫瑰与白玫瑰》在华语文学中占有重要的地位。它不仅展示了张爱玲独特的文学才华，也反映了当时社会的文化氛围和人性的复杂性。</div>
+
+</body>
+
+</html>
